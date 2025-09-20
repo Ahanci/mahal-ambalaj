@@ -28,6 +28,14 @@
       Mamak Mahal Ambalaj - Cengizhan Mahallesi Ambalaj ve Parti Malzemeleri
     </title>
 
+    <!-- DNS Prefetch & Preconnect for Performance -->
+    <link rel="dns-prefetch" href="//cdn.tailwindcss.com" />
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <!-- Critical CSS -->
     <style>
       /* Critical CSS for above-the-fold content */
@@ -206,33 +214,38 @@
       }
     </style>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS - Optimized -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      media="print"
-      onload="this.media='all'"
-    />
-
-    <!-- Custom CSS -->
-    <link
-      rel="stylesheet"
-      href="styles.css"
-      media="print"
-      onload="this.media='all'"
-    />
-
-    <!-- Preload critical resources -->
+    <!-- Font Awesome - Optimized Loading -->
     <link
       rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link rel="preload" href="styles.css" as="style" />
-    <link rel="preload" href="script.js" as="script" />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+    </noscript>
+
+    <!-- Custom CSS - Optimized Loading -->
+    <link
+      rel="preload"
+      href="styles.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="styles.min.css" />
+    </noscript>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="script.min.js" as="script" />
+    <link rel="preload" href="images/slider/slider-1.webp" as="image" />
+    <link rel="preload" href="images/slider/slider-2.webp" as="image" />
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json" />
@@ -1493,6 +1506,6 @@
     </button>
 
     <!-- JavaScript -->
-    <script src="script.js" defer></script>
+    <script src="script.min.js" defer></script>
   </body>
 </html>

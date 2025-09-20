@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
       backToTopBtn.style.opacity = "0";
       backToTopBtn.style.visibility = "hidden";
     }
-  });
+  }, { passive: true });
 
   backToTopBtn.addEventListener("click", function () {
     window.scrollTo({
@@ -278,12 +278,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("touchstart", function (e) {
     touchStartY = e.changedTouches[0].screenY;
-  });
+  }, { passive: true });
 
   document.addEventListener("touchend", function (e) {
     touchEndY = e.changedTouches[0].screenY;
     handleSwipe();
-  });
+  }, { passive: true });
 
   function handleSwipe() {
     const swipeThreshold = 50;
@@ -469,12 +469,12 @@ function initSlider() {
 
   slider.addEventListener("touchstart", (e) => {
     touchStartX = e.changedTouches[0].screenX;
-  });
+  }, { passive: true });
 
   slider.addEventListener("touchend", (e) => {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
-  });
+  }, { passive: true });
 
   function handleSwipe() {
     const swipeThreshold = 50;
