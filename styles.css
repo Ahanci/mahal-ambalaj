@@ -449,6 +449,9 @@ select:focus {
 
 /* Responsive slider */
 @media (max-width: 768px) {
+  .slider-slide img {
+    height: 200px !important;
+  }
   #prevBtn,
   #nextBtn {
     width: 40px;
@@ -478,6 +481,9 @@ select:focus {
 }
 
 @media (max-width: 480px) {
+  .slider-slide img {
+    height: 180px !important;
+  }
   .slider-slide .p-6 {
     padding: 1rem;
   }
