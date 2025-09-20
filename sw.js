@@ -21,7 +21,7 @@ self.addEventListener("install", (event) => {
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Opened cache");
       return cache.addAll(urlsToCache);
-    })
+    }),
   );
 });
 
@@ -31,7 +31,7 @@ self.addEventListener("fetch", (event) => {
     caches.match(event.request).then((response) => {
       // Return cached version or fetch from network
       return response || fetch(event.request);
-    })
+    }),
   );
 });
 
@@ -45,8 +45,8 @@ self.addEventListener("activate", (event) => {
             console.log("Deleting old cache:", cacheName);
             return caches.delete(cacheName);
           }
-        })
+        }),
       );
-    })
+    }),
   );
 });

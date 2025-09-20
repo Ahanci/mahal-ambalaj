@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Observe elements for animation
   const animateElements = document.querySelectorAll(
-    ".product-card, .bg-white.rounded-lg, .text-center"
+    ".product-card, .bg-white.rounded-lg, .text-center",
   );
   animateElements.forEach((el) => {
     observer.observe(el);
@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const phone = "905551234567"; // Replace with actual phone number
       const message = "Merhaba, Mahal Ambalaj hakkında bilgi almak istiyorum.";
       const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(
-        message
+        message,
       )}`;
       window.open(whatsappUrl, "_blank");
     });
@@ -364,148 +364,148 @@ window.MahalAmbalaj = {
   },
 };
 
-  // Image Slider Functionality
-  function initSlider() {
-    const slider = document.getElementById('slider-container');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const dots = document.querySelectorAll('.slider-dot');
-    
-    if (!slider || !prevBtn || !nextBtn) return;
-    
-    let currentSlide = 0;
-    const totalSlides = 4; // Number of slides
-    let autoSlideInterval;
-    
-    // Function to update slider position
-    function updateSlider() {
-      const translateX = -currentSlide * 100;
-      slider.style.transform = `translateX(${translateX}%)`;
-      
-      // Update dots
-      dots.forEach((dot, index) => {
-        if (index === currentSlide) {
-          dot.classList.add('bg-white', 'bg-opacity-100');
-          dot.classList.remove('bg-opacity-60');
-        } else {
-          dot.classList.remove('bg-white', 'bg-opacity-100');
-          dot.classList.add('bg-opacity-60');
-        }
-      });
-    }
-    
-    // Function to go to next slide
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateSlider();
-    }
-    
-    // Function to go to previous slide
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      updateSlider();
-    }
-    
-    // Function to go to specific slide
-    function goToSlide(slideIndex) {
-      currentSlide = slideIndex;
-      updateSlider();
-    }
-    
-    // Auto slide function
-    function startAutoSlide() {
-      autoSlideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-    }
-    
-    function stopAutoSlide() {
-      clearInterval(autoSlideInterval);
-    }
-    
-    // Event listeners
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      stopAutoSlide();
-      startAutoSlide(); // Restart auto slide
-    });
-    
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      stopAutoSlide();
-      startAutoSlide(); // Restart auto slide
-    });
-    
-    // Dot navigation
+// Image Slider Functionality
+function initSlider() {
+  const slider = document.getElementById("slider-container");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const dots = document.querySelectorAll(".slider-dot");
+
+  if (!slider || !prevBtn || !nextBtn) return;
+
+  let currentSlide = 0;
+  const totalSlides = 4; // Number of slides
+  let autoSlideInterval;
+
+  // Function to update slider position
+  function updateSlider() {
+    const translateX = -currentSlide * 100;
+    slider.style.transform = `translateX(${translateX}%)`;
+
+    // Update dots
     dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        goToSlide(index);
-        stopAutoSlide();
-        startAutoSlide(); // Restart auto slide
-      });
-    });
-    
-    // Pause auto slide on hover
-    const sliderContainer = document.getElementById('slider');
-    if (sliderContainer) {
-      sliderContainer.addEventListener('mouseenter', stopAutoSlide);
-      sliderContainer.addEventListener('mouseleave', startAutoSlide);
-    }
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') {
-        prevSlide();
-        stopAutoSlide();
-        startAutoSlide();
-      } else if (e.key === 'ArrowRight') {
-        nextSlide();
-        stopAutoSlide();
-        startAutoSlide();
-      }
-    });
-    
-    // Touch/swipe support for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    slider.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-    
-    slider.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    });
-    
-    function handleSwipe() {
-      const swipeThreshold = 50;
-      const diff = touchStartX - touchEndX;
-      
-      if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0) {
-          // Swipe left - next slide
-          nextSlide();
-        } else {
-          // Swipe right - previous slide
-          prevSlide();
-        }
-        stopAutoSlide();
-        startAutoSlide();
-      }
-    }
-    
-    // Initialize slider
-    updateSlider();
-    startAutoSlide();
-    
-    // Pause auto slide when page is not visible
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        stopAutoSlide();
+      if (index === currentSlide) {
+        dot.classList.add("bg-white", "bg-opacity-100");
+        dot.classList.remove("bg-opacity-60");
       } else {
-        startAutoSlide();
+        dot.classList.remove("bg-white", "bg-opacity-100");
+        dot.classList.add("bg-opacity-60");
       }
     });
   }
-  
-  // Initialize slider when DOM is loaded
-  initSlider();
+
+  // Function to go to next slide
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlider();
+  }
+
+  // Function to go to previous slide
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  }
+
+  // Function to go to specific slide
+  function goToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    updateSlider();
+  }
+
+  // Auto slide function
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  // Event listeners
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    stopAutoSlide();
+    startAutoSlide(); // Restart auto slide
+  });
+
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    stopAutoSlide();
+    startAutoSlide(); // Restart auto slide
+  });
+
+  // Dot navigation
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      goToSlide(index);
+      stopAutoSlide();
+      startAutoSlide(); // Restart auto slide
+    });
+  });
+
+  // Pause auto slide on hover
+  const sliderContainer = document.getElementById("slider");
+  if (sliderContainer) {
+    sliderContainer.addEventListener("mouseenter", stopAutoSlide);
+    sliderContainer.addEventListener("mouseleave", startAutoSlide);
+  }
+
+  // Keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      prevSlide();
+      stopAutoSlide();
+      startAutoSlide();
+    } else if (e.key === "ArrowRight") {
+      nextSlide();
+      stopAutoSlide();
+      startAutoSlide();
+    }
+  });
+
+  // Touch/swipe support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  slider.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swipe left - next slide
+        nextSlide();
+      } else {
+        // Swipe right - previous slide
+        prevSlide();
+      }
+      stopAutoSlide();
+      startAutoSlide();
+    }
+  }
+
+  // Initialize slider
+  updateSlider();
+  startAutoSlide();
+
+  // Pause auto slide when page is not visible
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopAutoSlide();
+    } else {
+      startAutoSlide();
+    }
+  });
+}
+
+// Initialize slider when DOM is loaded
+initSlider();

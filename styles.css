@@ -237,7 +237,8 @@ img[loading="lazy"].loaded {
 
 /* Hero section background pattern */
 .hero-pattern {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       circle at 25% 25%,
       rgba(255, 255, 255, 0.1) 0%,
       transparent 50%
@@ -251,12 +252,14 @@ img[loading="lazy"].loaded {
 
 /* Custom card shadows */
 .card-shadow {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .card-shadow-hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
@@ -457,23 +460,23 @@ select:focus {
     width: 40px;
     height: 40px;
   }
-  
+
   #prevBtn {
     left: 10px;
   }
-  
+
   #nextBtn {
     right: 10px;
   }
-  
+
   .slider-slide h3 {
     font-size: 1.25rem;
   }
-  
+
   .slider-slide p {
     font-size: 0.875rem;
   }
-  
+
   .slider-dot {
     width: 10px;
     height: 10px;
@@ -487,11 +490,11 @@ select:focus {
   .slider-slide .p-6 {
     padding: 1rem;
   }
-  
+
   .slider-slide h3 {
     font-size: 1.125rem;
   }
-  
+
   .slider-slide p {
     font-size: 0.8rem;
   }

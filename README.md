@@ -67,7 +67,6 @@ Mahal Ambalaj için modern, responsive ve SEO odaklı web sitesi. Lokal ambalaj 
    ```
 
 2. **Dosyaları Sunucuya Yükleyin**
-
    - Tüm dosyaları web sunucunuza yükleyin
    - `index.html` dosyası ana sayfa olarak ayarlanmalı
 
@@ -112,7 +111,6 @@ mahal-ambalaj/
 ## 📱 Mobil Uyumluluk
 
 - **Responsive Breakpoints**:
-
   - Mobile: < 768px
   - Tablet: 768px - 1024px
   - Desktop: > 1024px
@@ -180,12 +178,10 @@ mahal-ambalaj/
 ### Yaygın Sorunlar
 
 1. **Mobil menü açılmıyor**
-
    - JavaScript dosyasının yüklendiğinden emin olun
    - Console'da hata olup olmadığını kontrol edin
 
 2. **Form gönderilmiyor**
-
    - Form validasyonunu kontrol edin
    - Gerekli alanların doldurulduğundan emin olun
 
