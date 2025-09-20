@@ -11,9 +11,29 @@ Crawl-delay: 1
 Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
+Disallow: /node_modules/
+Disallow: /package.json
+Disallow: /package-lock.json
 
 # Allow important files
 Allow: /index.html
 Allow: /styles.css
 Allow: /script.js
-Allow: /favicon.ico 
+Allow: /sw.js
+Allow: /manifest.json
+Allow: /favicon.ico
+Allow: /images/
+Allow: /images/slider/
+
+# Allow search engines to crawl all content
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.webp
+Allow: /*.svg
+Allow: /*.ico
+
+# Host
+Host: https://mahalambalaj.com
