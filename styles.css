@@ -336,3 +336,199 @@ select:focus {
     scroll-behavior: auto;
   }
 }
+
+/* Image Slider Styles */
+#slider {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+#slider-container {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slider-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Slider navigation buttons */
+#prevBtn,
+#nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#prevBtn {
+  left: 20px;
+}
+
+#nextBtn {
+  right: 20px;
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+#prevBtn:active,
+#nextBtn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Slider dots navigation */
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 4px;
+}
+
+.slider-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.slider-dot.active {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.3);
+}
+
+/* Slider overlay text */
+.slider-slide .absolute {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+.slider-slide h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slider-slide p {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive slider */
+@media (max-width: 768px) {
+  #prevBtn,
+  #nextBtn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  #prevBtn {
+    left: 10px;
+  }
+  
+  #nextBtn {
+    right: 10px;
+  }
+  
+  .slider-slide h3 {
+    font-size: 1.25rem;
+  }
+  
+  .slider-slide p {
+    font-size: 0.875rem;
+  }
+  
+  .slider-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-slide .p-6 {
+    padding: 1rem;
+  }
+  
+  .slider-slide h3 {
+    font-size: 1.125rem;
+  }
+  
+  .slider-slide p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Slider loading state */
+.slider-slide img {
+  transition: opacity 0.3s ease;
+}
+
+.slider-slide img[loading="lazy"] {
+  opacity: 0;
+}
+
+.slider-slide img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Slider focus styles for accessibility */
+#prevBtn:focus,
+#nextBtn:focus,
+.slider-dot:focus {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Slider animation for smooth transitions */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slider-slide {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Pause animation on hover */
+#slider:hover .slider-slide {
+  animation-play-state: paused;
+}
